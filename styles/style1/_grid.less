@@ -1,0 +1,276 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: @bodyColor;
+}
+
+main {
+  width: 100%;
+  background-color: @mainColor;
+  padding: 40px;
+
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas:
+    "cookies"
+    "vegan"
+    "snacks"
+    ;
+
+  @media (max-width: @mobileWidth) {
+    width: 100%;
+  }
+}
+
+#pies {
+  padding: 25px;
+  margin: 10px 25px;
+
+  grid-area: cookies;
+
+  h3 {
+    grid-area: name;
+  }
+
+  .dish-1 {
+    grid-area: dish1;
+  }
+  .dish-1-description {
+    grid-area: dish1description;
+  }
+
+  .dish-2 {
+    grid-area: dish2;
+  }
+  .dish-2-description {
+    grid-area: dish2description;
+  }
+
+  .dish-3 {
+    grid-area: dish3;
+  }
+  .dish-3-description {
+    grid-area: dish3description;
+  }
+
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 50px auto auto;
+  grid-gap: 50px;
+  grid-template-areas:
+  "name name name"
+  "dish1 dish2 dish3"
+  "dish1description dish2description dish3description"
+  ;
+
+  @media (max-width: @mobileWidth) {
+    padding: 100px;
+    margin: 20px auto;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto auto auto auto;
+    grid-gap: 20px;
+    grid-template-areas:
+    "name"
+    "dish1"
+    "dish1description"
+    "dish2"
+    "dish2description"
+    "dish3"
+    "dish3description"
+    ;
+  }
+}
+
+#vegan {
+  padding: 25px;
+  margin: 10px auto;
+
+  grid-area: vegan;
+
+  h3 {
+    grid-area: name;
+  }
+
+  .dish-1 {
+    grid-area: dish1;
+  }
+  .dish-1-description {
+    grid-area: dish1description;
+  }
+
+  .dish-2 {
+    grid-area: dish2;
+  }
+  .dish-2-description {
+    grid-area: dish2description;
+  }
+
+  .dish-3 {
+    grid-area: dish3;
+  }
+
+  .dish-3-description {
+    grid-area: dish3description;
+  }
+
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 50px auto;
+  grid-gap: 50px;
+  grid-template-areas:
+  "name name name"
+  "dish1 dish2 dish3"
+  "dish1description dish2description dish3description"
+;
+
+  @media (max-width: @mobileWidth) {
+    padding: 100px;
+    margin: 20px auto;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto auto auto auto;
+    grid-gap: 20px;
+    grid-template-areas:
+    "name"
+    "dish1"
+    "dish1description"
+    "dish2"
+    "dish2description"
+    "dish3"
+    "dish3description"
+  ;
+  }
+}
+
+#snacks {
+  padding: 25px;
+  margin: 10px 25px;
+
+  grid-area: snacks;
+
+  h3 {
+    grid-area: name;
+  }
+
+  .dish-1 {
+    grid-area: dish1;
+  }
+  .dish-1-description {
+    grid-area: dish1description;
+  }
+
+  .dish-2 {
+    grid-area: dish2;
+  }
+  .dish-2-description {
+    grid-area: dish2description;
+  }
+
+  .dish-3 {
+    grid-area: dish3;
+  }
+  .dish-3-description {
+    grid-area: dish3description;
+  }
+
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 50px auto;
+  grid-gap: 50px;
+  grid-template-areas:
+  "name name name"
+  "dish1 dish2 dish3"
+  "dish1description dish2description dish3description"
+  ;
+
+  @media (max-width: @mobileWidth) {
+    padding: 100px;
+    margin: 20px auto;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto auto auto auto;
+    grid-gap: 20px;
+    grid-template-areas:
+    "name"
+    "dish1"
+    "dish1description"
+    "dish2"
+    "dish2description"
+    "dish3"
+    "dish3description"
+  ;
+  }
+}
+
+.dish-showcase {
+  width: 300px;
+  padding: 10px;
+  background-color: @dishBackgroundColor;
+
+  @media (max-width: @mobileWidth) {
+    width: 100%;
+    margin: 20px auto;
+  }
+
+  &:hover {
+    box-shadow: 5px 5px 20px;
+  }
+
+  img {
+    width: 280px;
+    margin-bottom: 30px;
+
+    @media (max-width: @mobileWidth) {
+      width: 100%;
+    }
+  }
+
+  h4 {
+    margin-bottom: 30px;
+  }
+}
+
+.dish-section {
+  position: relative;
+
+  transition: background-color 0.3s;
+
+  h3::after {
+    content: " ";
+    display: block;
+    width: 20.5%;
+    height: 2px;
+    background-color: @underlineColor;
+    position: absolute;
+    left: 39.75%;
+    top: 12%;
+    transform: translateX(-50%) scaleX(0);
+    transition: transform 0.3s;
+  }
+
+  &:hover {
+    background-color: @dishSectionColor;
+
+    h3::after {
+      transform: translateX(0%) scaleX(1);
+    }
+  }
+
+  @media (max-width: @mobileWidth) {
+    h3 {
+      margin-bottom: 20%;
+    }
+
+    h3::after {
+      content: none;
+    }
+  }
+}
